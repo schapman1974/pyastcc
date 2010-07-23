@@ -1,8 +1,0 @@
-#!/usr/bin/python
-import sys
-acctnum=sys.argv[1]
-acctnum=acctnum.replace("#","").replace("*","").lstrip(" ").rstrip(" ")
-if len(acctnum)<1 or len(acctnum)>12:verify=0
-else: verify=1
-print "SET VARIABLE verify " + str(verify) + "\n"
-print "SET VARIABLE CCADDR " + str(acctnum) + "\n"
