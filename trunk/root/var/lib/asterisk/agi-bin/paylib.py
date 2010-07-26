@@ -45,21 +45,21 @@ class Upay:
     data=""
     getstat={}
     try:
-      if TLF.has_key("UMmagstripe"):
+      if TLF.has_key("magstripe"):
         getstat['SWIPED']='YES'
-        tear=TLF['UMmagstripe'].split("^")
+        tear=TLF['magstripe'].split("^")
         tear2=tear[0][2:len(tear[0])-1].replace(" ","")
         getstat['CC']=tear2[len(tear2)-4:len(tear2)]
       else:
         getstat['SWIPED']='NO'
-        getstat['CC']=TLF['UMcard'][len(TLF['UMcard'])-4:len(TLF['UMcard'])]
+        getstat['CC']=TLF['card'][len(TLF['card'])-4:len(TLF['card'])]
       getstat['DOLLARS']=TLF['UMamount']
       getstat['TICKET']=TLF['UMinvoice']
     except:
       pass
 
-    TLF['UMhash']=self.ahash(self.pincode,TLF['UMcommand'],TLF['UMamount'],TLF['UMinvoice'])
-    TLF['UMkey']=self.sourcekey
+    TLF['hash']=self.ahash(self.pincode,TLF['command'],TLF['amount'],TLF['invoice'])
+    TLF['key']=self.sourcekey
     for key,info in TLF.items():
       #print key + "=" + info
       data += self.__encode(key,info)
