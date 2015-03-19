@@ -1,0 +1,1 @@
+This project gives the layout for a credit card dial plan with some simple verification AGI's.  The project currently does not support any specific gateway and requires modification of the paylib.py file to authenticate aginst a payment gateway of your choice
